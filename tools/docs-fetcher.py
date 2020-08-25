@@ -42,29 +42,36 @@ def fetch_docs(file_path):
     front_matter = yaml.load(yaml_contents, Loader=Loader)
 
     latest_version = ''
-    external_docs = []
     dir_name = os.path.basename(os.path.dirname(file_path))
 
-    for docs in front_matter['external_docs']:
+    external_docs = front_matter.get('external_docs', [])
+
+    if not external_docs:
+        print('Warning: No external docs in', file_path)
+        exit(0)
+
+    for docs in external_docs:
         repo_name = clone_repo(docs['repo'], docs['name'], docs['branch'])
         docs['repo_name'] = repo_name
         docs['file'] = file_path
         if docs.get('is_latest'):
             latest_version = docs['name']
-        external_docs.append(docs)
+
+        link_external_docs(os.path.join(repo_name, docs['dir']), os.path.join(dir_name, docs['name']))
 
     if not latest_version and external_docs:
         latest_version = external_docs[0]['name']
 
+    # We should create a link "latest" pointing to the latest docs' version
     create_redirect(dir_name, latest_version)
 
-    return external_docs
-
-def link_external_docs(external_docs):
-    for docs in external_docs:
-        src_dir = os.path.join('..', '..', EXTERNAL_REPOS_DIR, docs['repo_name'], docs['dir'])
-        dst_dir = os.path.join(TOP_DIR_PATH, 'docs', os.path.dirname(docs['file']), docs['name'])
-        os.symlink(src_dir, dst_dir)
+def link_external_docs(linked_dir, link_name):
+    src_dir = os.path.join('..', '..', EXTERNAL_REPOS_DIR, linked_dir)
+    dst_dir = os.path.join(TOP_DIR_PATH, 'docs', link_name)
+    if os.path.exists(dst_dir):
+        print('File exists when trying to create link', dst_dir)
+        return
+    os.symlink(src_dir, dst_dir)
 
 def create_redirect(folder, target, redirect_name='latest'):
     html_contents = '''<!DOCTYPE html>
@@ -80,6 +87,10 @@ def create_redirect(folder, target, redirect_name='latest'):
 '''
     html_contents = html_contents.replace('@DOCS_PATH@', os.path.join(folder, target))
     redirect_dir = os.path.join(TOP_DIR_PATH, 'docs', folder, redirect_name)
+
+    if os.path.exists(redirect_dir):
+        return
+
     os.makedirs(redirect_dir)
 
     with open(os.path.join(redirect_dir, 'index.html'), 'w') as f:
@@ -90,5 +101,4 @@ if __name__ == '__main__':
         print('Please pass a file path to it.')
         exit(-1)
 
-    external_docs = fetch_docs(sys.argv[1])
-    link_external_docs(external_docs)
+    fetch_docs(sys.argv[1])
