@@ -13,5 +13,5 @@ sidebar:
 cascade:
   github_edit_url: https://github.com/kinvolk/lokomotive/edit/jrocha/wip/newdocs/docs/
   issues_url: https://github.com/kinvolk/lokomotive/issues/new
-weight: 40
+weight: 30
 ---
