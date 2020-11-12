@@ -6,7 +6,7 @@ external_docs:
   - repo: https://github.com/kinvolk/inspektor-gadget.git
     name: "0.2"
     branch: "master"
-    dir: "Documentation"
+    dir: "docs"
 sidebar:
   skip: true
   link: latest
