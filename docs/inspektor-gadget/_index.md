@@ -5,7 +5,7 @@ children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/inspektor-gadget.git
     name: "0.2"
-    branch: "jrocha/wip/newdocs"
+    branch: "master"
     dir: "Documentation"
 sidebar:
   skip: true
