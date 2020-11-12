@@ -11,7 +11,7 @@ sidebar:
   skip: true
   link: latest
 cascade:
-  github_edit_url: https://github.com/kinvolk/inspektor-gadget/edit/jrocha/wip/newdocs/Documentation
+  github_edit_url: https://github.com/kinvolk/inspektor-gadget/edit/master/docs
   issues_url: https://github.com/kinvolk/inspektor-gadget/issues/new
 weight: 40
 ---
