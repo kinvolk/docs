@@ -15,7 +15,7 @@ cascade:
   stable_channel: 2512.3.0
   beta_channel: 2513.3.0
   edge_channel: 2466.99.0
-weight: 40
+weight: 10
 cascade:
   github_edit_url: https://github.com/flatcar-linux/docs/edit/jrocha/wip/newdocs/docs/
   issues_url: https://github.com/flatcar-linux/docs/issues/new
