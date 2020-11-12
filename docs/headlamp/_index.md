@@ -10,7 +10,7 @@ external_docs:
 sidebar:
   skip: true
 cascade:
-  github_edit_url: https://github.com/kinvolk/nebraska/edit/jrocha/wip/newdocs/docs/
-  issues_url: https://github.com/kinvolk/nebraska/issues/new
+  github_edit_url: https://github.com/kinvolk/headlamp/edit/jrocha/wip/new_docs/docs/
+  issues_url: https://github.com/kinvolk/headlamp/issues/new
 weight: 40
 ---
