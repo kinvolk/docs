@@ -18,5 +18,5 @@ cascade:
 weight: 10
 cascade:
   github_edit_url: https://github.com/kinvolk/flatcar-docs/edit/main/docs/
-  issues_url: https://github.com/kinvolk/flatcar/issues/new
+  issues_url: https://github.com/kinvolk/flatcar/issues/new?labels=kind/docs
 ---
