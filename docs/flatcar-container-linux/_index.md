@@ -3,7 +3,7 @@ content_type: flatcar-container-linux
 title: Flatcar Container Linux
 children_are_versions: true
 external_docs:
-  - repo: https://github.com/flatcar-linux/docs.git
+  - repo: https://github.com/kinvolk/flatcar-docs.git
     name: "2512.3"
     branch: "jrocha/wip/newdocs"
     dir: "docs"
@@ -17,6 +17,6 @@ cascade:
   edge_channel: 2466.99.0
 weight: 10
 cascade:
-  github_edit_url: https://github.com/flatcar-linux/docs/edit/jrocha/wip/newdocs/docs/
-  issues_url: https://github.com/flatcar-linux/docs/issues/new
+  github_edit_url: https://github.com/kinvolk/flatcar-docs/edit/jrocha/wip/newdocs/docs/
+  issues_url: https://github.com/kinvolk/flatcar-docs/issues/new
 ---
