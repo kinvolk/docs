@@ -6,7 +6,7 @@ external_docs:
   - repo: https://github.com/kinvolk/flatcar-docs.git
     name: "2512.3"
     branch: "newdocs"
-    dir: "."
+    dir: "docs"
 sidebar:
   skip: true
   link: latest
