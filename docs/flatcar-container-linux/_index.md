@@ -5,7 +5,7 @@ children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/flatcar-docs.git
     name: "2605.7.0"
-    branch: "master"
+    branch: "main"
     dir: "docs"
 sidebar:
   skip: true
@@ -17,6 +17,6 @@ cascade:
   edge_channel: 2466.99.0
 weight: 10
 cascade:
-  github_edit_url: https://github.com/kinvolk/flatcar-docs/edit/master/
+  github_edit_url: https://github.com/kinvolk/flatcar-docs/edit/main/
   issues_url: https://github.com/kinvolk/flatcar/issues/new
 ---
