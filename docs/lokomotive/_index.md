@@ -12,6 +12,6 @@ sidebar:
   link: latest
 cascade:
   github_edit_url: https://github.com/kinvolk/lokomotive/edit/newdocs/docs/
-  issues_url: https://github.com/kinvolk/lokomotive/issues/new
+  issues_url: https://github.com/kinvolk/lokomotive/issues/new?labels=kind/documentation
 weight: 30
 ---
