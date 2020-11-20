@@ -5,13 +5,13 @@ children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/lokomotive.git
     name: "0.5"
-    branch: "newdocs"
+    branch: "master"
     dir: "docs"
 sidebar:
   skip: true
   link: latest
 cascade:
-  github_edit_url: https://github.com/kinvolk/lokomotive/edit/newdocs/docs/
+  github_edit_url: https://github.com/kinvolk/lokomotive/edit/master/docs/
   issues_url: https://github.com/kinvolk/lokomotive/issues/new?labels=kind/documentation
 weight: 30
 ---
