@@ -41,6 +41,15 @@ def clone_repo(repo_url, name, branch):
     repo_path = os.path.join(TOP_DIR_PATH, EXTERNAL_REPOS_DIR, repo_name)
     if not os.path.isdir(repo_path):
         subprocess.run(['git', 'clone', '--depth=1', '--branch={}'.format(branch), repo_url, repo_path])
+    else:
+        # If the repo exists and there are no local changes, then update it so we get the docs up
+        # to date.
+        try:
+            subprocess.check_output(['git', '-C', repo_path, 'diff-index', '--quiet', 'HEAD'])
+        except subprocess.CalledProcessError:
+            print('Repo "{}" has local changes. Not updating.'.format(repo_path))
+        else:
+            subprocess.run(['git', '-C', repo_path, 'pull', '--no-rebase'])
     return repo_name
 
 def fetch_docs(file_path):
