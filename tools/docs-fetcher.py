@@ -70,9 +70,6 @@ def fetch_docs(file_path):
     if not latest_version:
         latest_version = external_docs[0]['name']
 
-    # We should create a link "latest" pointing to the latest docs' version
-    create_redirect(dir_name, latest_version)
-
 def link_external_docs(linked_dir, link_name):
     src_dir = os.path.join('..', '..', EXTERNAL_REPOS_DIR, linked_dir)
     dst_dir = os.path.join(TOP_DIR_PATH, 'docs', link_name)
@@ -86,29 +83,6 @@ def link_external_docs(linked_dir, link_name):
         return
 
     os.symlink(src_dir, dst_dir)
-
-def create_redirect(folder, target, redirect_name='latest'):
-    html_contents = '''<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="canonical" href="/docs/@DOCS_PATH@"/>
-    <meta name="robots" content="noindex">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="refresh" content="0; url=/docs/@DOCS_PATH@"/>
-  </head>
-</html>
-'''
-    html_contents = html_contents.replace('@DOCS_PATH@', os.path.join(folder, target))
-    redirect_dir = os.path.join(TOP_DIR_PATH, 'docs', folder, redirect_name)
-
-    if os.path.exists(redirect_dir):
-        return
-
-    os.makedirs(redirect_dir)
-
-    with open(os.path.join(redirect_dir, 'index.html'), 'w') as f:
-        f.write(html_contents)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
