@@ -56,7 +56,6 @@ def fetch_docs(file_path):
     yaml_contents = get_yaml(file_path)
     front_matter = yaml.load(yaml_contents, Loader=Loader)
 
-    latest_version = ''
     dir_name = os.path.basename(os.path.dirname(file_path))
 
     external_docs = front_matter.get('external_docs', [])
@@ -69,15 +68,8 @@ def fetch_docs(file_path):
         repo_name = clone_repo(docs['repo'], docs['name'], docs['branch'])
         docs['repo_name'] = repo_name
         docs['file'] = file_path
-        if docs.get('is_latest'):
-            latest_version = docs['name']
 
         link_external_docs(os.path.join(repo_name, docs['dir']), os.path.join(dir_name, docs['name']))
-
-    # If the docs didn't define the latest version, then we assume is the first one defined,
-    # i.e. at the top in the YAML definition.
-    if not latest_version:
-        latest_version = external_docs[0]['name']
 
 def link_external_docs(linked_dir, link_name):
     src_dir = os.path.join('..', '..', EXTERNAL_REPOS_DIR, linked_dir)
