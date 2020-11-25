@@ -45,9 +45,9 @@ def clone_repo(repo_url, name, branch):
         # If the repo exists and there are no local changes, then update it so we get the docs up
         # to date.
         try:
-            subprocess.check_output(['git', '-C', repo_path, 'diff-index', '--quiet', 'HEAD'])
-        except subprocess.CalledProcessError:
-            print('Repo "{}" has local changes. Not updating.'.format(repo_path))
+            subprocess.check_output(['git', '-C', repo_path, 'diff', '--quiet', 'HEAD'])
+        except subprocess.CalledProcessError as e:
+            print('Repo "{}" has local changes. Not updating: {}'.format(repo_path, e))
         else:
             subprocess.run(['git', '-C', repo_path, 'pull', '--no-rebase'])
     return repo_name
