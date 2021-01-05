@@ -13,5 +13,8 @@ sidebar:
 cascade:
   github_edit_url: https://github.com/kinvolk/nebraska/edit/master/docs/
   issues_url: https://github.com/kinvolk/nebraska/issues/new
+  search:
+    domain: nebraska
+    inputPlaceholder: Search Nebraska docs…
 weight: 40
 ---
