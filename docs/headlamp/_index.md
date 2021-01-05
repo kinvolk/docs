@@ -13,5 +13,8 @@ sidebar:
 cascade:
   github_edit_url: https://github.com/kinvolk/headlamp/edit/master/docs
   issues_url: https://github.com/kinvolk/headlamp/issues/new
+  search:
+    domain: headlamp
+    inputPlaceholder: Search Headlamp docs…
 weight: 40
 ---

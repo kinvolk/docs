@@ -13,5 +13,8 @@ sidebar:
 cascade:
   github_edit_url: https://github.com/kinvolk/inspektor-gadget/edit/master/docs
   issues_url: https://github.com/kinvolk/inspektor-gadget/issues/new
+  search:
+    domain: inspektor-gadget
+    inputPlaceholder: Search Inspektor Gadget docs…
 weight: 40
 ---

@@ -13,5 +13,8 @@ sidebar:
 cascade:
   github_edit_url: https://github.com/kinvolk/lokomotive/edit/master/docs/
   issues_url: https://github.com/kinvolk/lokomotive/issues/new?labels=kind/documentation
+  search:
+    domain: lokomotive
+    inputPlaceholder: Search Lokomotive docs…
 weight: 30
 ---
