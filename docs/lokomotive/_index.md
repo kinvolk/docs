@@ -4,7 +4,15 @@ title: Lokomotive
 children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/lokomotive.git
+    name: "0.6"
+    branch: "v0.6.0"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/lokomotive.git
     name: "0.5"
+    branch: "newdocs"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/lokomotive.git
+    name: "git-main"
     branch: "master"
     dir: "docs"
 sidebar:
