@@ -69,6 +69,16 @@ def fetch_docs(file_path):
         docs['repo_name'] = repo_name
         docs['file'] = file_path
 
+        build_cmd = docs.get('build_cmd')
+        if build_cmd:
+            repo_path = os.path.join(
+                TOP_DIR_PATH,
+                EXTERNAL_REPOS_DIR,
+                repo_name
+            )
+            print("Running build command: ", build_cmd, ": in: ", repo_path)
+            subprocess.run(build_cmd, shell=True, cwd=repo_path)
+
         link_external_docs(os.path.join(repo_name, docs['dir']), os.path.join(dir_name, docs['name']))
 
 def link_external_docs(linked_dir, link_name):
