@@ -5,8 +5,9 @@ children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/headlamp.git
     name: "0.2"
-    branch: "master"
+    branch: "typedoc"
     dir: "docs"
+    build_cmd: "make docs"
 sidebar:
   skip: true
   link: latest
