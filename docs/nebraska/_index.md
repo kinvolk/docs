@@ -4,8 +4,12 @@ title: Nebraska
 children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/nebraska.git
-    name: "2.3"
-    branch: "master"
+    name: "2.4"
+    branch: "2.4.0"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/nebraska.git
+    name: "git-main"
+    branch: "main"
     dir: "docs"
 sidebar:
   skip: true
