@@ -4,12 +4,12 @@ title: Headlamp
 children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/headlamp.git
-    name: "0.3"
-    branch: "master"
+    name: "0.4"
+    branch: "v0.4.0"
     dir: "docs"
   - repo: https://github.com/kinvolk/headlamp.git
-    name: "0.2"
-    branch: "v0.2.1"
+    name: "git-main"
+    branch: "main"
     dir: "docs"
 sidebar:
   skip: true
