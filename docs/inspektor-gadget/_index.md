@@ -5,7 +5,7 @@ children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/inspektor-gadget.git
     name: "0.2"
-    branch: "master"
+    branch: "main"
     dir: "docs"
 sidebar:
   skip: true
