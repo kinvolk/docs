@@ -3,7 +3,7 @@ content_type: flatcar-container-linux
 title: Flatcar Container Linux
 children_are_versions: true
 external_docs:
-  - repo: https://github.com/kinvolk/flatcar-docs.git
+  - repo: https://github.com/flatcar-linux/flatcar-docs.git
     name: "latest"
     branch: "main"
     dir: "docs"
@@ -11,7 +11,7 @@ sidebar:
   skip: true
 weight: 10
 cascade:
-  github_edit_url: https://github.com/kinvolk/flatcar-docs/edit/main/docs/
+  github_edit_url: https://github.com/flatcar-linux/flatcar-docs/edit/main/docs/
   issues_url: https://github.com/kinvolk/flatcar/issues/new?labels=kind/docs
   search:
     domain: flatcar
