@@ -7,7 +7,6 @@ external_docs:
     name: "0.9"
     branch: "v0.9.0"
     dir: "docs"
-external_docs:
   - repo: https://github.com/kinvolk/lokomotive.git
     name: "0.8"
     branch: "v0.8.0"
