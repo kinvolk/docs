@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- $redirectURL := default "" .Site.Params.redirect_url -}}
+    {{- if .Site.Params.docs.external_docs -}}
+      {{- $default_docs := index .Site.Params.docs.external_docs 0 -}}
+      {{- if $default_docs -}}
+        {{ $default_docs = print "/docs/" $default_docs.name }}
+      {{- end -}}
+      {{- $redirectURL = default "" $default_docs -}}
+    {{- end -}}
+    {{- if $redirectURL -}}
+      {{- if not (hasPrefix $redirectURL "http") -}}
+        {{- $redirectURL = print .Site.BaseURL $redirectURL -}}
+      {{- end -}}
+    <meta http-equiv="refresh" content="0; url='{{ $redirectURL }}'" />
+    {{- end -}}
+  </head>
+  <body>
+    {{- if $redirectURL -}}
+    <p>Please follow <a href="{{ $redirectURL }}">this link</a>.</p>
+    {{- else -}}
+    <p>No redirect found. You either need to set up docs or content (edit content/_index.md).</p>
+    {{- end -}}
+  </body>
+</html>
