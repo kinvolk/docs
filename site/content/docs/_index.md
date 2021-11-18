@@ -6,6 +6,8 @@ layout: redirect
 sidebar:
   skip: true
 weight: 10
+aliases:
+- /docs/latest
 cascade:
   type: docs
 hero:
