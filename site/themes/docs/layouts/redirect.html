@@ -13,7 +13,12 @@
       {{- if not (hasPrefix $redirectURL "http") -}}
         {{- $redirectURL = print .Site.BaseURL $redirectURL -}}
       {{- end -}}
-    <meta http-equiv="refresh" content="0; url='{{ $redirectURL }}'" />
+    <noscript>
+      <meta http-equiv="refresh" content="0; url='{{ $redirectURL }}'" />
+    </noscript>
+    <script>
+      window.location.replace("{{ $redirectURL }}" + window.location.hash);
+    </script>
     {{- end -}}
   </head>
   <body>
