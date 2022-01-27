@@ -1,10 +1,14 @@
-all: getdeps docs
+all: getdeps
+	@echo "Run: ./tools/setup.sh ../PATH/TO/MYPROJECT/CONFIG.YAML"
+	@echo "and then: make run"
 
 getdeps:
 	pip3 install --upgrade pyyaml
 
-.PHONY: docs
-docs:
-	@echo "Fetching external docs…"
-	@find ./docs -maxdepth 2 -type l -delete
-	@for i in `find docs/ -name _index.md`; do python3 ./tools/docs-fetcher.py $${i}; echo; done
+run:
+	@cd site && \
+	hugo server --buildFuture --watch --disableFastRender --config ./config.yaml\,./ext_config.yaml\,./tmp_modules.yaml
+
+build:
+	@cd site && \
+	hugo --config ./config.yaml\,./ext_config.yaml -b ${HUGO_BASE_URL}

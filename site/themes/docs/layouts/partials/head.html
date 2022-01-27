@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ if eq .Kind "term" }}{{ .Data.Singular }} {{ .Title }}{{ else }}{{ .Title }} | {{ $.Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ default .Title .Site.Params.description }}" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300;400;600;700&family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+    <!-- Search meta tags -->
+    {{ if .Params.noindex }}
+    <meta name="robots" content="noindex, follow" />
+    {{ else }}
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    {{ end }}
+
+    <link rel="canonical" href="{{ .Site.BaseURL }}" />
+    {{ hugo.Generator }}
+
+    {{- partial "opengraph" . -}}
+
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" "compressed" "enableSourceMap" true) -}}
+    {{- $style := resources.Get "scss/main.scss" | resources.ToCSS $options | fingerprint -}}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ $.Site.Params.favicon }}" />
+</head>
+<body class="{{ if .IsHome }} home-page {{ end }}{{ .Type }} {{ .Kind }}">

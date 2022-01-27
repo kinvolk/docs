@@ -20,12 +20,8 @@ except ImportError:
 docsfetcher = __import__('docs-fetcher')
 
 def get_latest_version(file_path):
-    yaml_contents = docsfetcher.get_yaml(file_path)
-    front_matter = yaml.load(yaml_contents, Loader=Loader)
-
     latest_version = ''
-
-    external_docs = front_matter.get('external_docs', [])
+    external_docs = docsfetcher.get_external_docs_config(file_path)
 
     if not external_docs:
         sys.stderr.write('Warning: No external docs in {}\n'.format(file_path))

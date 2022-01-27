@@ -1,0 +1,21 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: My New Hugo Site
+theme: docs
+assetDir: static
+outputs:
+  home:
+  - json
+  - html
+privacy:
+  youtube:
+    privacyEnhanced: true
+
+params:
+  #twitter: MytwitterHandleWithout@
+  #github: MyOrg/MyProject
+  #opengraph:
+  #  image: https://kinvolk.io/images/kinvolk-social-share.png
+  #  enable: false
+
+canonifyURLS: true

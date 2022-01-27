@@ -1,0 +1,12 @@
+<div id="fastSearch">
+    <div class="search-contents">
+        <input id="searchInput" autocomplete="off" tabindex="0" data-search-version="{{ partial "docs/getcurrentversion" . }}" placeholder="{{ default "Search…" .Params.search.inputPlaceholder }}"/>
+        <div id="searchResults">
+            <ul id="searchResultsList"></ul>
+        </div>
+    </div>
+</div>
+<script>
+    window.location.origin="{{ .Site.BaseURL }}";
+    window.location['baseurl']="{{ .Site.BaseURL }}"
+</script>

@@ -1,0 +1,8 @@
+{{- $logo := resources.GetMatch "/media/logo.*" -}}
+{{- if $logo -}}
+{{- if $logo.MediaType.MainType | eq "image" -}}
+<img src="{{ $logo.Permalink }}" alt="" >
+{{- else -}}
+<h1 class="site-text-title">{{ .Site.Title }}</h1>
+{{- end -}}
+{{- end -}}

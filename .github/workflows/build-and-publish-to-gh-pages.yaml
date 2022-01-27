@@ -1,0 +1,63 @@
+name: Build & Publish docs
+on:
+  workflow_call:
+    inputs:
+      config:
+        description: 'The relative path to the site config file'
+        default: './docs/config.yaml'
+        required: false
+        type: string
+jobs:
+  build:
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out docs generator
+      uses: actions/checkout@v2
+      with:
+        repository: kinvolk/docs
+        path: generator
+        ref: site-gen
+    - name: Move generator to temp dir
+      # Let's leave the workspace clean for the actual repo checkout as
+      # we need it to be checked out to the plain workspace (without a
+      # subfolder).
+      run:  |
+        mv ./generator $RUNNER_TEMP/generator
+        echo DOCS_GENERATOR=$RUNNER_TEMP/generator >> $GITHUB_ENV
+    - name: Check out main repo
+      uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.15.4'
+      id: go
+    - name: Install yq tool
+      run: |
+        GO111MODULE=on go get github.com/mikefarah/yq/v2
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.89.0'
+        extended: true
+    - name: Build site
+      run: |
+        cd $DOCS_GENERATOR
+        ./tools/setup.sh $GITHUB_WORKSPACE/${{ inputs.config }}
+        repo_words=($(echo $GITHUB_REPOSITORY | tr '/' ' ')) # Split MyGithubOrg/MyProject -> [MyGithubOrg MyProject]
+        ORG=${repo_words[0]}
+        PROJECT=${repo_words[1]}
+        HUGO_BASE_URL="https://$ORG.github.io/$PROJECT" make build
+    - name: Move generated site into repo
+      run: |
+        git fetch origin gh-pages
+        git checkout gh-pages
+        mv $DOCS_GENERATOR/site/public $GITHUB_WORKSPACE/__public__
+    - name: Deploy to gh-pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: __public__
+        clean: true
+        clean-exclude: |
+          index.yaml

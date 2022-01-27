@@ -1,0 +1,18 @@
+<ul class="list-inline socials__list">
+  {{- $social := .Site.Params.social -}}
+  {{- $twitter := .Site.Params.twitter -}}
+  {{- if $twitter -}}
+    {{- $social = $social | append (dict "title" "twitter" "url" (print "https://twitter.com/" $twitter ) "image" "twitter-icon") -}}
+  {{- end -}}
+  {{- $github := .Site.Params.github -}}
+  {{- if $github -}}
+    {{- $social = $social | append (dict "title" "github" "url" (print "https://github.com/" $github ) "image" "github-icon") -}}
+  {{- end -}}
+  {{ range $social }}
+  <li class="list-inline-item socials__item">
+    <a href="{{ .url }}" class="socials__link" target="_blank" rel="noopener" aria-label="{{ .title }}">
+      <i class="fab fa-{{ .title }}-square"></i>
+    </a>
+  </li>
+  {{ end }}
+</ul>
