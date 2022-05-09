@@ -8,7 +8,7 @@ external_docs:
     branch: "2.4.0"
     dir: "docs"
   - repo: https://github.com/kinvolk/nebraska.git
-    name: "git-main"
+    name: "latest"
     branch: "main"
     dir: "docs"
 sidebar:

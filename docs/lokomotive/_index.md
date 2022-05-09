@@ -24,7 +24,7 @@ external_docs:
     branch: "newdocs"
     dir: "docs"
   - repo: https://github.com/kinvolk/lokomotive.git
-    name: "git-main"
+    name: "latest"
     branch: "master"
     dir: "docs"
 sidebar:
