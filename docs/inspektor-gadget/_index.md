@@ -4,6 +4,22 @@ title: Inspektor Gadget
 children_are_versions: true
 external_docs:
   - repo: https://github.com/kinvolk/inspektor-gadget.git
+    name: "v0.7.1"
+    branch: "v0.7.1"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/inspektor-gadget.git
+    name: "v0.7.0"
+    branch: "v0.7.0"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/inspektor-gadget.git
+    name: "v0.6.0"
+    branch: "v0.6.0"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/inspektor-gadget.git
+    name: "v0.5.1"
+    branch: "v0.5.1"
+    dir: "docs"
+  - repo: https://github.com/kinvolk/inspektor-gadget.git
     name: "v0.5.0"
     branch: "v0.5.0"
     dir: "docs"
